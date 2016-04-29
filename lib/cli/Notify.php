@@ -38,7 +38,7 @@ abstract class Notify {
 	 * @param int     $interval  The interval in milliseconds between updates.
 	 */
 	public function __construct($msg, $interval = 100) {
-		$this->_message = $msg;
+		$this->setMessage($msg);
 		$this->_interval = (int)$interval;
 	}
 
@@ -181,5 +181,14 @@ abstract class Notify {
 			Streams::out("\r");
 			$this->display();
 		}
+	}
+
+	/**
+	 * Set the message for this progress bar
+	 *
+	 * @param string $message The new message
+	 */
+	public function setMessage($message) {
+        $this->_message = $message;
 	}
 }
